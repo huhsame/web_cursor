@@ -269,7 +269,7 @@ Vercel이 자동으로 다시 배포합니다!
 >
 > 이런 것들을 배웁니다!
 >
-> 👉 [Chapter 6. 프로젝트 시작](../part2/chapter6-project-start.md)
+> 👉 [Chapter 6. 프로젝트 시작](part2/chapter6-project-start.md)
 
 ---
 

@@ -303,5 +303,5 @@ TypeScript + Tailwind
 
 > Git을 제대로 이해하고, 협업 방법을 배웁니다!
 >
-> 👉 [Chapter 12. Git 제대로 이해하기](chapter12-git.md)
+> 👉 [Chapter 12. Git 제대로 이해하기](part2/chapter12-git.md)
 

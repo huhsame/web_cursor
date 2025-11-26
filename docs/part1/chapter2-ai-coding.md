@@ -485,5 +485,5 @@ Apply 하기 전이라면 Reject 버튼을 눌러 취소할 수 있습니다.
 > 이제 진짜로 가계부 앱을 만들어봅니다!
 > Cursor의 Plan 모드를 사용해서 한번에 만들어볼 거예요.
 >
-> 👉 [Chapter 3. 가계부 앱 만들기](chapter3-budget-app.md)
+> 👉 [Chapter 3. 가계부 앱 만들기](part1/chapter3-budget-app.md)
 

@@ -437,5 +437,5 @@ AI가 응답을 주면:
 > 가계부를 인터넷에 공개해서
 > 누구나 접속할 수 있게 배포합니다!
 >
-> 👉 [Chapter 5. 세상에 공개하기](chapter5-deploy.md)
+> 👉 [Chapter 5. 세상에 공개하기](part1/chapter5-deploy.md)
 

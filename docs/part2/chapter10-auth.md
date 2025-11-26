@@ -339,5 +339,5 @@ const { data } = await supabase
 
 > 댓글, 이미지 업로드, 검색 기능을 추가합니다!
 >
-> 👉 [Chapter 11. 추가 기능](chapter11-features.md)
+> 👉 [Chapter 11. 추가 기능](part2/chapter11-features.md)
 

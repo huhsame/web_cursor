@@ -348,5 +348,5 @@ lib/supabase.ts 파일 만들어줘.
 > 상품 CRUD 기능을 만들어봅니다!
 > (등록, 조회, 수정, 삭제)
 >
-> 👉 [Chapter 9. 상품 기능 만들기](chapter9-product-crud.md)
+> 👉 [Chapter 9. 상품 기능 만들기](part2/chapter9-product-crud.md)
 

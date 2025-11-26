@@ -258,5 +258,5 @@ npm --version
 > AI에게 어떻게 요청해야 좋은 코드를 받을 수 있는지 배웁니다.
 > AI가 준 코드를 어떻게 적용하는지도 알아봅니다.
 >
-> 👉 [Chapter 2. AI로 코딩하는 법](chapter2-ai-coding.md)
+> 👉 [Chapter 2. AI로 코딩하는 법](part1/chapter2-ai-coding.md)
 

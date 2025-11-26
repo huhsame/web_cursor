@@ -232,5 +232,5 @@ npm install @supabase/supabase-js
 
 > 메인 페이지와 레이아웃을 만들어봅니다!
 >
-> 👉 [Chapter 7. 메인 페이지 만들기](chapter7-main-page.md)
+> 👉 [Chapter 7. 메인 페이지 만들기](part2/chapter7-main-page.md)
 

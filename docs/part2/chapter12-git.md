@@ -410,5 +410,5 @@ node_modules/
 
 > 고구마마켓을 배포하고 강의를 마무리합니다!
 >
-> 👉 [Chapter 13. 배포하고 마무리](chapter13-deploy.md)
+> 👉 [Chapter 13. 배포하고 마무리](part2/chapter13-deploy.md)
 

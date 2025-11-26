@@ -237,5 +237,5 @@ Supabase 클라이언트 설정
 
 > 데이터베이스 테이블을 설계하고 만들어봅니다!
 >
-> 👉 [Chapter 8. 데이터베이스 설계](chapter8-db-design.md)
+> 👉 [Chapter 8. 데이터베이스 설계](part2/chapter8-db-design.md)
 

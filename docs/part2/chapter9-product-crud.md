@@ -317,5 +317,5 @@ app/
 
 > 회원가입과 로그인 기능을 만들어봅니다!
 >
-> 👉 [Chapter 10. 사용자 인증](chapter10-auth.md)
+> 👉 [Chapter 10. 사용자 인증](part2/chapter10-auth.md)
 

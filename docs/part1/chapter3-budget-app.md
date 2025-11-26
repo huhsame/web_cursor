@@ -405,5 +405,5 @@ AI에게 구체적으로 요청:
 > 데이터베이스(Supabase)를 연결해서
 > 새로고침해도 데이터가 유지되게 만들어봅니다!
 >
-> 👉 [Chapter 4. 데이터베이스 연결하기](chapter4-database.md)
+> 👉 [Chapter 4. 데이터베이스 연결하기](part1/chapter4-database.md)
 
