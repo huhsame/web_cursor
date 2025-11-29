@@ -14,7 +14,7 @@
 > - 푸터 (하단 정보)
 
 ### AI에게 요청하기
-
+![alt text](image.png)
 커서 Chat에서 **복사-붙여넣기**:
 
 ```
@@ -26,7 +26,7 @@
 
 푸터:
 - 중앙 정렬
-- "© 2024 고구마마켓. All rights reserved."
+- "© 2025 허세임AI. All rights reserved."
 
 TypeScript + Tailwind CSS
 모바일에서도 잘 보이게 반응형으로
@@ -34,25 +34,35 @@ TypeScript + Tailwind CSS
 
 ### AI 응답 적용하기
 
-1. Apply 클릭
-2. 변경 내용 확인 (초록=추가, 빨간=삭제)
-3. Accept 클릭
-4. 저장 (`Ctrl + S` / `Cmd + S`)
+1. 변경 내용 확인 
+2. Keep 클릭
 
-<!-- 스크린샷: 레이아웃 적용 후 화면 -->
 
 ### 테스트하기
+![alt text](image-1.png)
 
 브라우저에서 `localhost:3000` 확인!
 - 헤더가 보이나요?
 - 푸터가 보이나요?
 
 ### 📝 커밋하기
+가지치기 모양을 눌러 커밋메뉴로 이동하면 다음과 같이 Changes 라는 곳에 파일들이 나와있다.
 
-```
-공통 레이아웃 추가
-```
+![alt text](iShot_2025-11-28_19.38.56.png)
 
+변경이 있는 파일중에서, 수정사항을 컨펌할 파일들만 선택한다. 지금은 모두 선택
+![alt text](iShot_2025-11-28_19.39.25.png)
+
++버튼을 누르면 스테이지 되었다고 표현한다.
+![alt text](iShot_2025-11-28_19.39.50.png)
+
+이제 커밋 메시지를 추가후 커밋 클릭
+![alt text](iShot_2025-11-28_19.40.06.png)
+
+커밋 잘 되었나 확인
+![alt text](iShot_2025-11-28_19.40.15.png)
+
+주의사항: 아직은 커밋만 한 상태. Github에 반영되지 않는다. 
 ---
 
 ## 7.2 컴포넌트란?
@@ -116,16 +126,11 @@ Props:
 TypeScript + Tailwind
 ```
 
-### 적용하기
+### 미리보기
 
-1. Apply → Accept
-2. 저장
+아직 페이지를 개발한게 아니고 페이지에 필요한 부품(컴포넌트)만 만들어두었기 때문에 아직 미리보기에 나타나는 것은 없다. 
 
-### 📝 커밋하기
-
-```
-ProductCard 컴포넌트 추가
-```
+![alt text](image-2.png)
 
 ---
 
@@ -145,18 +150,16 @@ ProductCard 컴포넌트 추가
 TypeScript + Tailwind
 ```
 
-### 적용하기
+page.tsx 코드를 보면, 아까 만든 ProductCard 컴포넌트를 활용하는 것을 확인할 수 있다. 
 
-1. Apply → Accept
-2. 저장
-
+![alt text](image-4.png)
 ### 테스트하기
+
+![alt text](image-3.png)
 
 브라우저에서 확인!
 - 상품 카드들이 보이나요?
 - 화면 크기 줄이면 열 수가 바뀌나요?
-
-<!-- 스크린샷: 메인 페이지 완성 -->
 
 ### 📝 커밋하기
 
@@ -196,28 +199,6 @@ TypeScript + Tailwind
 | `lg:` | 1024px 이상 |
 | `xl:` | 1280px 이상 |
 
----
-
-## 7.6 Supabase 클라이언트 설정
-
-나중에 DB 연동을 위해 미리 설정해둡니다.
-
-### AI에게 요청하기
-
-```
-Supabase 클라이언트 설정 파일을 만들어줘.
-(lib/supabase.ts)
-
-환경변수:
-- NEXT_PUBLIC_SUPABASE_URL
-- NEXT_PUBLIC_SUPABASE_ANON_KEY
-```
-
-### 적용 후 커밋
-
-```
-Supabase 클라이언트 설정
-```
 
 ---
 

@@ -111,7 +111,7 @@ app/
 
 ### Step 1: 새 프로젝트 생성
 
-터미널에서 **직접 타이핑**:
+커서말고 터미널에서 **직접 타이핑**:
 
 ```bash
 npx create-next-app@latest goguma-market
@@ -130,15 +130,12 @@ npx create-next-app@latest goguma-market
 
 ### Step 3: 프로젝트 열기
 
-```bash
-cd goguma-market
-```
 
 커서에서 `File` → `Open Folder` → `goguma-market` 선택
 
 ### Step 4: 개발 서버 실행
 
-터미널에서 **직접 타이핑**:
+터미널에서 **직접 입력**:
 
 ```bash
 npm run dev
@@ -150,31 +147,128 @@ npm run dev
 
 ## 6.4 Supabase 설정
 
-### Step 1: 새 프로젝트 만들기
+### Part1에서 했던 것
 
-1. [supabase.com](https://supabase.com) 접속
-2. **New Project** 클릭
-3. 정보 입력:
-   - Name: `goguma-market`
-   - Region: `Northeast Asia (Seoul)`
-4. **Create new project**
+> **Part1에서 이미 Supabase를 사용했습니다!**
+>
+> ✅ Supabase 계정 생성 (GitHub으로 가입)
+> ✅ `my-budget-app` 프로젝트 생성
+>
+> 이번에는 **같은 계정**으로 로그인해서,
+> **새로운 프로젝트**를 추가로 만들 겁니다.
 
-### Step 2: 환경변수 설정
+### Step 1: Supabase 로그인
 
-프로젝트 루트에 `.env.local` 파일 생성:
+> ⚠️ **회원가입 아니고 로그인입니다!**
+
+1. 브라우저에서 **[supabase.com](https://supabase.com)** 접속
+2. **Sign In** 클릭 (Sign Up 아님!)
+3. Part1에서 사용한 방법으로 로그인 (GitHub 추천)
+4. 대시보드가 열리면, `my-budget-app` 프로젝트가 보일 겁니다
+
+<!-- 스크린샷: Supabase 대시보드에 my-budget-app 보이는 화면 -->
+
+### Step 2: 새 프로젝트 생성
+
+1. 대시보드에서 **New Project** 클릭
+2. 정보 입력:
+   - **Name**: `goguma-market` (원하는 이름)
+   - **Database Password**: 비밀번호 입력 (꼭 기억하세요!)
+   - **Region**: `Northeast Asia (Seoul)` 선택
+3. **Create new project** 클릭
+
+> ⏳ 프로젝트 생성에 1~2분 정도 걸립니다.
+
+<!-- 스크린샷: 새 프로젝트 생성 화면 -->
+
+### Step 3: API 키 복사
+
+프로젝트가 만들어지면:
+
+1. 왼쪽 메뉴에서 **Settings** (⚙️) 클릭
+2. **API** 탭 클릭
+3. 다음 두 값을 복사해둡니다:
+   - **Project URL** (NEXT_PUBLIC_SUPABASE_URL)
+   - **anon public** key (NEXT_PUBLIC_SUPABASE_ANON_KEY)
+
+<!-- 스크린샷: API 설정 화면 -->
+
+### Step 4: 환경변수 설정
+
+VS Code/Cursor에서 프로젝트 루트에 **새 파일** 만들기:
+
+**파일명**: `.env.local`
+
+```bash
+NEXT_PUBLIC_SUPABASE_URL=여기에_Project_URL_붙여넣기
+NEXT_PUBLIC_SUPABASE_ANON_KEY=여기에_anon_public_key_붙여넣기
+```
+
+> ⚠️ **실제 값으로 바꿔야 합니다!**
+>
+> 예시:
+> ```
+> NEXT_PUBLIC_SUPABASE_URL=https://abcdefghijk.supabase.co
+> NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+> ```
+
+<!-- 스크린샷: .env.local 파일 예시 -->
+
+### Step 5: Supabase 클라이언트 생성
+
+Cursor에게 요청하기:
 
 ```
-NEXT_PUBLIC_SUPABASE_URL=여기에_URL
-NEXT_PUBLIC_SUPABASE_ANON_KEY=여기에_KEY
+Supabase 클라이언트를 만들어줘.
+
+파일 위치: lib/supabase.ts
+
+환경변수에서 URL과 KEY를 가져와서
+createClient로 Supabase 클라이언트를 만들어줘.
+
+에러 처리도 추가해줘.
 ```
 
-### Step 3: Supabase 패키지 설치
+AI가 만든 코드를 **Apply**하고 저장!
+
+<!-- 스크린샷: Cursor에 요청 -->
+
+**예상 코드 (참고용):**
+
+```typescript
+import { createClient } from '@supabase/supabase-js'
+
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+if (!supabaseUrl || !supabaseAnonKey) {
+  throw new Error('Supabase URL과 Anon Key가 필요합니다!')
+}
+
+export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+```
+
+### Step 6: Supabase 패키지 설치
 
 터미널에서 **직접 타이핑**:
 
 ```bash
 npm install @supabase/supabase-js
 ```
+
+설치가 완료될 때까지 기다립니다.
+
+### Step 7: 개발 서버 재시작
+
+환경변수가 적용되도록 서버를 재시작합니다.
+
+1. 터미널에서 `Ctrl + C` (서버 종료)
+2. 다시 시작:
+   ```bash
+   npm run dev
+   ```
+
+> 💡 **`.env.local` 파일을 수정하면 항상 서버를 재시작해야 합니다!**
 
 ---
 
@@ -183,7 +277,8 @@ npm install @supabase/supabase-js
 ### 왜 커밋하나요?
 
 > **"여기까지 완성!"** 을 기록해두는 것입니다.
->
+
+Part1에서 커서에 깃헙을 잘 연동해두었다면, 이미 되어있을 것입니다.
 > 나중에 문제가 생기면 이 시점으로 돌아올 수 있어요.
 
 ### Cursor에서 커밋하기
@@ -194,26 +289,11 @@ npm install @supabase/supabase-js
 4. 메시지 입력: `프로젝트 초기 세팅`
 5. **✓** 버튼 클릭 (커밋)
 
-<!-- 스크린샷: 커밋 과정 -->
 
 > 💡 **앞으로 각 기능을 완성할 때마다 커밋합니다!**
 
 ---
 
-## 6.6 GitHub에 올리기
-
-### Step 1: GitHub에서 새 저장소 만들기
-
-1. github.com 접속
-2. **+** → **New repository**
-3. Name: `goguma-market`
-4. **Create repository**
-
-### Step 2: 커서에서 Push
-
-<!-- 스크린샷: Push 과정 (사용자가 추가) -->
-
----
 
 ## 핵심 정리
 
