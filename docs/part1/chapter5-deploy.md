@@ -57,12 +57,6 @@ https://my-budget-app.vercel.app → 누구나 접속 가능!
    - 비밀번호
    - 사용자명 (영문, 나중에 URL이 됨!)
 
-<!-- 스크린샷: GitHub 회원가입 -->
-
-### Step 2: 이메일 인증
-
-가입한 이메일로 인증 메일이 옵니다.
-메일의 인증 버튼을 클릭하세요.
 
 ---
 
@@ -70,21 +64,50 @@ https://my-budget-app.vercel.app → 누구나 접속 가능!
 
 커서에서 GitHub에 코드를 올리려면 먼저 연결해야 합니다.
 
-<!-- 이 부분은 사용자가 직접 스크린샷과 단계를 작성 예정 -->
 
 ### Step 1: Source Control 패널 열기
 
 왼쪽 사이드바에서 **Source Control** 아이콘 클릭
 (가지가 뻗어나가는 모양)
 
-<!-- 스크린샷: Source Control 아이콘 위치 -->
+![alt text](iShot_2025-11-24_18.19.04.png)
+![alt text](image-2.png)
 
-### Step 2: GitHub 로그인
+### Step 2: GitHub 정보 설정
 
-<!-- 스크린샷: 로그인 과정 -->
+먼저 터미널에 본인의 이메일과 영어닉네임을 입력하세요. 
+```
+git config --global user.email "본인이메일주소"
+git config --global user.name "본인닉네임"
+```
 
-### Step 3: 인증 완료
+![alt text](iShot_2025-11-24_18.21.26.png)
+### Step 3: 첫번째 커밋 과 로그인
+상단의 입력칸에 '첫번째 커밋'이라 적고 커밋버튼을 누릅니다. 메세지는 원하는 대로 적을 수 있습니다. 하지만 빈칸이어서는 안됩니다. 
 
+![alt text](image-3.png)
+
+![alt text](image-4.png)
+
+### Step 3: 퍼블리시하면서 깃헙연결
+이제 커밋된 코드를 내 깃헙계정에 업로드하기위해 Publish 버튼을 누릅니다. 처음 Publish 를 할때에는 커서와 Github연결하는 절차가 진행됩니다. 안내되어있는대로 차근차근 진행합니다. 
+
+![alt text](iShot_2025-11-24_18.38.00.png)
+![alt text](iShot_2025-11-24_18.38.09.png)
+![alt text](iShot_2025-11-24_18.38.34.png)
+![alt text](iShot_2025-11-24_18.41.22.png)
+![alt text](iShot_2025-11-24_18.41.55.png)
+영어 문자열을 복사해서 커서에 붙여넣기
+
+![alt text](iShot_2025-11-24_18.42.14.png)
+
+![alt text](iShot_2025-11-24_18.42.57.png)
+
+연결 완료되었습니다. 이제 진짜 Publish를 합니다. 
+
+![alt text](iShot_2025-11-24_18.43.32.png)
+
+![alt text](iShot_2025-11-24_18.44.18.png)
 <!-- 스크린샷: 인증 완료 화면 -->
 
 > 💡 **문제가 생기면?**
@@ -92,35 +115,11 @@ https://my-budget-app.vercel.app → 누구나 접속 가능!
 
 ---
 
-## 5.5 GitHub에 코드 올리기
-
-### Step 1: 저장소(Repository) 만들기
-
-GitHub 웹사이트에서:
-
-1. 오른쪽 위 **+** 버튼 클릭
-2. **New repository** 선택
-3. 정보 입력:
-   - **Repository name**: `my-budget-app`
-   - **Public** 선택 (무료)
-4. **Create repository** 클릭
-
-<!-- 스크린샷: 저장소 생성 -->
-
-### Step 2: 커서에서 업로드하기
-
-<!-- 스크린샷: 업로드 과정 (사용자가 추가) -->
-
-### 푸시(Push)란?
-
-> **내 컴퓨터 → GitHub 서버로 코드 업로드**하는 것입니다.
-
 ### Step 3: GitHub에서 확인
 
 GitHub 저장소 페이지를 새로고침하면 코드가 올라가 있습니다!
 
-<!-- 스크린샷: GitHub에 올라간 코드 -->
-
+![alt text](image-5.png)
 ---
 
 ## 5.6 Vercel로 배포하기
@@ -146,21 +145,22 @@ GitHub 저장소 페이지를 새로고침하면 코드가 올라가 있습니�
 2. **Sign Up** 클릭
 3. **Continue with GitHub** 클릭 (GitHub 계정으로 가입)
 
-<!-- 스크린샷: Vercel 가입 -->
 
 ### Step 2: 프로젝트 가져오기
-
+![alt text](iShot_2025-11-24_18.46.55.png)
+![alt text](iShot_2025-11-24_18.47.04.png)
+![alt text](iShot_2025-11-28_19.22.51.png)
 1. **Add New...** 또는 **New Project** 클릭
 2. **Import Git Repository** 섹션에서
 3. `my-budget-app` 저장소 찾기
 4. **Import** 클릭
 
-<!-- 스크린샷: 프로젝트 Import -->
 
 ### Step 3: 환경변수 설정 (중요!)
 
 Supabase 연결을 위해 환경변수를 설정해야 합니다.
-
+![alt text](iShot_2025-11-24_18.48.22.png)
+![alt text](iShot_2025-11-24_18.49.18.png)
 1. **Environment Variables** 섹션 찾기
 2. 다음 두 개를 추가:
 
@@ -169,19 +169,19 @@ Supabase 연결을 위해 환경변수를 설정해야 합니다.
 | `NEXT_PUBLIC_SUPABASE_URL` | (Supabase URL) |
 | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | (Supabase Key) |
 
-<!-- 스크린샷: 환경변수 설정 -->
 
 > ⚠️ `.env.local`에 있는 값을 그대로 넣으세요!
 
 ### Step 4: 배포하기
 
 **Deploy** 버튼 클릭!
-
-<!-- 스크린샷: Deploy 버튼 -->
-
 배포 진행 상황이 보입니다. 1~2분 기다리세요.
 
+
+
 ### Step 5: 완료! 🎉
+![alt text](iShot_2025-11-28_19.25.13.png)
+
 
 배포가 완료되면 URL이 나타납니다!
 
@@ -189,7 +189,7 @@ Supabase 연결을 위해 환경변수를 설정해야 합니다.
 https://my-budget-app-xxxxx.vercel.app
 ```
 
-<!-- 스크린샷: 배포 완료 화면 -->
+![alt text](iShot_2025-11-28_19.25.25.png)
 
 **이 URL을 클릭하면 내 가계부가 열립니다!**
 
@@ -202,7 +202,6 @@ https://my-budget-app-xxxxx.vercel.app
 3. 데이터 추가해보기
 4. 새로고침해서 데이터 유지 확인
 
-<!-- 스크린샷: 배포된 가계부 앱 -->
 
 ### 🎉 축하합니다!
 

@@ -68,7 +68,6 @@
 
 > **엑셀 시트와 비슷합니다!**
 
-<!-- 이미지: 엑셀과 테이블 비교 -->
 
 | 엑셀 | 데이터베이스 |
 |------|------------|
@@ -146,58 +145,36 @@ VALUES (15000, '점심', '식비', '지출')
 
 ---
 
-## 4.5 Supabase 시작하기
+## 4.5 Cursor에게 DB 연결 요청하기
 
-### Step 1: 회원가입
+### 간단하게 AI에게 물어보기
 
-1. 브라우저에서 **[supabase.com](https://supabase.com)** 접속
-2. **Start your project** 또는 **Sign Up** 클릭
-3. GitHub 계정으로 가입 (추천) 또는 이메일 가입
+가계부 앱이 완성된 상태에서, **Cursor에게 간단하게 요청**해봅시다!
 
-<!-- 스크린샷: Supabase 메인 페이지 -->
+커서의 **Chat** 기능을 열고, **아래 내용을 복사해서 붙여넣기**:
 
-### Step 2: 새 프로젝트 만들기
+```
+사용자가 입력한 데이터를 Supabase에 연결해서 저장하고 싶어.
+새로고침해도 데이터가 유지되게 해줘.
+```
 
-1. **New Project** 클릭
-2. 정보 입력:
-   - **Name**: `my-budget-app` (원하는 이름)
-   - **Database Password**: 비밀번호 입력 (기억해두세요!)
-   - **Region**: `Northeast Asia (Seoul)` 선택
-3. **Create new project** 클릭
 
-<!-- 스크린샷: 새 프로젝트 생성 화면 -->
+### AI의 응답 확인하기
 
-> ⏳ 프로젝트 생성에 1~2분 정도 걸립니다.
+AI가 친절하게 단계별로 알려줄 겁니다!
 
-### Step 3: 대시보드 확인
+**예상 응답:**
+```
+Supabase를 사용해서 데이터를 저장하려면 다음 단계가 필요합니다:
 
-프로젝트가 만들어지면 대시보드가 보입니다.
+1. Supabase 회원가입 및 프로젝트 생성
+2. 데이터베이스 테이블 생성 (아래 SQL 사용)
+3. API 키 복사
+4. .env.local 파일에 키 설정
+5. @supabase/supabase-js 패키지 설치
+6. 코드 수정
 
-<!-- 스크린샷: Supabase 대시보드 -->
-
-**주요 메뉴:**
-- **Table Editor** - 테이블 관리
-- **SQL Editor** - SQL 직접 실행
-- **Authentication** - 사용자 인증
-- **Storage** - 파일 저장
-- **Settings** - 설정
-
----
-
-## 4.6 테이블 만들기
-
-### Step 1: SQL Editor 열기
-
-왼쪽 메뉴에서 **SQL Editor** 클릭
-
-<!-- 스크린샷: SQL Editor 위치 -->
-
-### Step 2: SQL 입력하기
-
-**아래 SQL을 복사해서 붙여넣기**하세요:
-
-```sql
--- transactions 테이블 생성
+[SQL 쿼리]
 CREATE TABLE transactions (
   id BIGSERIAL PRIMARY KEY,
   created_at TIMESTAMPTZ DEFAULT NOW(),
@@ -206,92 +183,105 @@ CREATE TABLE transactions (
   category TEXT DEFAULT '기타',
   type TEXT NOT NULL
 );
-
--- 모든 사람이 읽기 가능하도록 설정
-ALTER TABLE transactions ENABLE ROW LEVEL SECURITY;
-
-CREATE POLICY "Anyone can read transactions"
-ON transactions FOR SELECT
-USING (true);
-
-CREATE POLICY "Anyone can insert transactions"
-ON transactions FOR INSERT
-WITH CHECK (true);
-
-CREATE POLICY "Anyone can delete transactions"
-ON transactions FOR DELETE
-USING (true);
+...
 ```
 
-<!-- 스크린샷: SQL 입력 화면 -->
+![alt text](iShot_2025-11-28_18.08.41.png)
+
+> 💡 **AI가 필요한 모든 것을 알려줍니다!**
+> 이제 AI가 알려준 순서대로 하나씩 따라해봅시다.
+
+---
+
+## 4.6 Supabase 회원가입하기
+
+AI가 첫 번째로 "Supabase 회원가입"을 하라고 했죠?
+
+### Step 1: 회원가입
+![alt text](iShot_2025-11-28_18.09.38.png)
+
+1. 브라우저에서 **[supabase.com](https://supabase.com)** 접속
+2. **Start your project** 또는 **Sign Up** 클릭
+3. GitHub 계정으로 가입 (추천) 또는 구글 가입
+
+
+### Step 2: 새 프로젝트 만들기
+![alt text](iShot_2025-11-28_18.11.35.png)
+1. **New Project** 클릭
+2. 정보 입력:
+   - **Name**: `my-budget-app` (원하는 이름)
+   - **Database Password**: 비밀번호 입력 (기억해두세요!)
+   - **Region**: `Northeast Asia (Seoul)` 선택
+3. **Create new project** 클릭
+
+
+
+> ⏳ 프로젝트 생성에 1~2분 정도 걸립니다.
+
+### Step 3: 대시보드 확인
+
+프로젝트가 만들어지면 대시보드가 보입니다.
+![alt text](iShot_2025-11-28_18.15.19.png)
+
+---
+
+## 4.7 SQL로 테이블 만들기
+
+AI가 두 번째로 "SQL로 테이블 만들기"를 하라고 했죠?
+
+### Step 1: SQL Editor 열기
+
+Supabase 대시보드 왼쪽 메뉴에서 **SQL Editor** 클릭
+
+![alt text](iShot_2025-11-28_18.17.19.png)
+
+### Step 2: AI가 만든 SQL 붙여넣기
+
+**Cursor가 알려준 SQL 쿼리를 복사해서 붙여넣기**하세요!
+
 
 ### Step 3: 실행하기
+![alt text](iShot_2025-11-28_18.17.52.png)
 
 **Run** 버튼 클릭 (또는 `Ctrl + Enter`)
 
-<!-- 스크린샷: Run 버튼 -->
-
 **Success** 메시지가 나오면 성공!
 
-### Step 4: 테이블 확인하기
+### Step 4: 테이블 확인
 
 1. 왼쪽 메뉴에서 **Table Editor** 클릭
-2. `transactions` 테이블이 보이면 성공!
+2. 테이블이 보이면 성공!
 
-<!-- 스크린샷: Table Editor에서 테이블 확인 -->
-
----
-
-## 4.7 API 키 복사하기
-
-가계부 앱에서 Supabase에 접속하려면 **API 키**가 필요합니다.
-
-### Step 1: Settings 열기
-
-왼쪽 메뉴에서 **Project Settings** (톱니바퀴) 클릭
-
-### Step 2: API 메뉴
-
-**API** 메뉴 클릭
-
-<!-- 스크린샷: Settings > API -->
-
-### Step 3: 키 복사하기
-
-두 가지를 복사해야 합니다:
-
-1. **Project URL**
-   - `https://xxxxx.supabase.co` 형태
-   - 복사 버튼 클릭
-
-2. **anon (public) key**
-   - 긴 문자열
-   - 복사 버튼 클릭
-
-<!-- 스크린샷: URL과 Key 위치 -->
-
-> ⚠️ **이 키들을 메모장에 임시로 저장해두세요!**
+![alt text](iShot_2025-11-28_18.18.43.png)
 
 ---
 
-## 4.8 환경변수 설정하기
+## 4.8 API 키 복사하기
+
+AI가 세 번째로 "API 키 복사"를 하라고 했죠?
+![alt text](iShot_2025-11-28_18.24.34.png)
+![alt text](iShot_2025-11-28_18.24.24.png)
+
+
+---
+
+## 4.9 환경변수 파일 만들기
+
+AI가 네 번째로 ".env.local 파일 만들기"를 하라고 했죠?
 
 ### Step 1: .env.local 파일 만들기
 
+![alt text](iShot_2025-11-28_18.20.18.png)
 커서에서 프로젝트 루트(최상위 폴더)에 새 파일을 만듭니다.
 
 **파일명:** `.env.local`
 
 > 💡 파일명 앞에 점(.)이 있습니다!
 
-### Step 2: 내용 입력하기
+### Step 2: 키 붙여넣기
 
-**.env.local** 파일에 아래 내용을 입력하세요:
+**.env.local** 파일에 아까 복사한 것을 붙여넣으세요:
 
-```
-NEXT_PUBLIC_SUPABASE_URL=여기에_Project_URL_붙여넣기
-NEXT_PUBLIC_SUPABASE_ANON_KEY=여기에_anon_key_붙여넣기
-```
 
 **예시:**
 ```
@@ -299,70 +289,22 @@ NEXT_PUBLIC_SUPABASE_URL=https://abcdefgh.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
 ```
 
-### Step 3: 파일 저장
-
-- Windows: `Ctrl + S`
-- Mac: `Cmd + S`
 
 > ⚠️ **.env.local 파일은 비밀 정보가 들어있으므로**
 > **절대 다른 사람에게 공유하면 안 됩니다!**
 
 ---
 
-## 4.9 Supabase 패키지 설치하기
+## 4.10 Supabase 패키지 설치하기
 
-가계부 앱에서 Supabase를 사용하려면 패키지를 설치해야 합니다.
+AI가 다섯 번째로 "패키지 설치"를 하라고 했죠?
 
-터미널에서 **아래 명령어를 직접 타이핑**하세요:
+터미널에서 **아래 명령어를 실행**하세요:
 
 ```bash
 npm install @supabase/supabase-js
 ```
 
-<!-- 스크린샷: 패키지 설치 -->
-
-설치 완료!
-
----
-
-## 4.10 가계부에 DB 연결하기
-
-### AI에게 요청하기
-
-이제 AI에게 Supabase 연결을 요청합니다.
-
-커서의 **Chat** 기능을 열고, **아래 내용을 복사해서 붙여넣기**:
-
-```
-가계부 앱을 Supabase에 연결해줘.
-
-현재 상황:
-- .env.local에 NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY 있음
-- transactions 테이블이 있음
-  - id (자동생성)
-  - created_at (자동생성)
-  - amount (숫자)
-  - content (텍스트)
-  - category (텍스트)
-  - type (텍스트, '수입' 또는 '지출')
-
-해야 할 것:
-1. lib/supabase.ts 파일 만들어서 클라이언트 설정
-2. app/page.tsx 수정해서:
-   - 페이지 로드시 DB에서 데이터 불러오기
-   - 새 거래 추가하면 DB에 저장
-   - 삭제하면 DB에서도 삭제
-```
-
-### AI 응답 적용하기
-
-AI가 응답을 주면:
-
-1. **여러 파일을 수정/생성**하라고 할 겁니다
-2. **순서대로 Apply** 클릭
-3. 모든 파일 **저장** (`Ctrl + S` / `Cmd + S`)
-
-<!-- 스크린샷: AI 응답 적용 -->
 
 ---
 
@@ -371,21 +313,25 @@ AI가 응답을 주면:
 ### Step 1: 개발 서버 재시작
 
 터미널에서:
-1. `Ctrl + C`로 서버 종료
+1. `Ctrl + C`로 서버 종료 (맥도 Ctrl 사용)
 2. `npm run dev`로 다시 시작
+
+> 💡 **환경변수(.env.local)를 변경했을 때는 꼭 서버를 재시작해야 합니다!**
 
 ### Step 2: 데이터 추가하기
 
-브라우저에서 `localhost:3000`에 접속해서 거래를 추가해보세요.
+브라우저에서 `localhost:3000`에 접속해서 가계부를 추가해보세요.
 
 ### Step 3: Supabase에서 확인하기
 
+![alt text](iShot_2025-11-28_18.26.15.png)
+
 1. Supabase 대시보드로 이동
 2. **Table Editor** 클릭
-3. `transactions` 테이블 클릭
+3. 우리 데이터 테이블 클릭
 4. 방금 추가한 데이터가 보이면 성공!
 
-<!-- 스크린샷: Supabase에서 데이터 확인 -->
+
 
 ### Step 4: 새로고침 테스트 🎉
 
@@ -407,7 +353,7 @@ AI가 응답을 주면:
    - 환경변수 변경 후에는 꼭 재시작!
 
 3. Supabase 테이블 확인
-   - `transactions` 테이블이 있나요?
+   - 테이블이 있나요?
 
 ### "에러가 나요"
 
