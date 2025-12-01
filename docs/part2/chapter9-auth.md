@@ -406,6 +406,12 @@ AuthContext의 user 정보 사용해서 구현.
 
 ---
 
+
+## 카카오 로그인
+
+REST API KEY: 694d223bf855bfbaf716220985a8e46b
+시크릿코드: Vv9Da1WblkQ4IxNz1TveAhrdyR1Ux5G2
+
 ## 다음 챕터에서는
 
 > 로그인 기능이 완성되었습니다!
